@@ -7,9 +7,9 @@ USE `wine4all`;
 CREATE TABLE Vins(
     idVin INT AUTO_INCREMENT,
     nomVin VARCHAR(100),
-    Domaine VARCHAR(100),
-    Region VARCHAR(100),
-    Pays VARCHAR(100),
+    domaine VARCHAR(100),
+    region VARCHAR(100),
+    pays VARCHAR(100),
     tauxAlcool DECIMAL(4, 2),
     petillant BOOLEAN,
     volume DECIMAL(15, 2),
@@ -56,9 +56,9 @@ CREATE TABLE Avis(
 INSERT INTO
     Vins (
         nomVin,
-        Domaine,
-        Region,
-        Pays,
+        domaine,
+        region,
+        pays,
         tauxAlcool,
         petillant,
         volume,
