@@ -1,0 +1,19 @@
+{
+  "name": "hackathonefrei",
+  "version": "1.0.0",
+  "description": "Site axée sur le vin:\r -Carte interactive\r -Base de données de vins\r -API Vin\r -Favoris et avis (comptes utilisateurs)\r -Mise en vente de vin (Vendeur et Particulier)\r -Enchère du jour ?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liamor2/hackathonEfrei.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liamor2/hackathonEfrei/issues"
+  },
+  "homepage": "https://github.com/liamor2/hackathonEfrei#readme"
+}
