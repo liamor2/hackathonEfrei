@@ -4,7 +4,7 @@ CREATE DATABASE `wine4all`;
 
 USE `wine4all`;
 
-CREATE TABLE Vins(
+CREATE TABLE vins(
     idVin INT AUTO_INCREMENT,
     nomVin VARCHAR(100),
     domaine VARCHAR(100),
@@ -22,7 +22,7 @@ CREATE TABLE Vins(
     PRIMARY KEY(idVin)
 );
 
-CREATE TABLE Users(
+CREATE TABLE users(
     idUser INT AUTO_INCREMENT,
     nom VARCHAR(50),
     prenom VARCHAR(50),
@@ -32,29 +32,29 @@ CREATE TABLE Users(
     PRIMARY KEY(idUser)
 );
 
-CREATE TABLE Ventes(
+CREATE TABLE ventes(
     idVentes INT AUTO_INCREMENT,
     idVin INT,
     idUser INT,
     prix VARCHAR(50),
     PRIMARY KEY(idVentes),
-    FOREIGN KEY(idVin) REFERENCES Vins(idVin),
-    FOREIGN KEY(idUser) REFERENCES Users(idUser)
+    FOREIGN KEY(idVin) REFERENCES vins(idVin),
+    FOREIGN KEY(idUser) REFERENCES users(idUser)
 );
 
-CREATE TABLE Avis(
+CREATE TABLE avis(
     idAvis INT AUTO_INCREMENT,
     idVin INT,
     idUser INT,
     Avis TEXT,
     note INT,
     PRIMARY KEY(idAvis),
-    FOREIGN KEY(idVin) REFERENCES Vins(idVin),
-    FOREIGN KEY(idUser) REFERENCES Users(idUser)
+    FOREIGN KEY(idVin) REFERENCES vins(idVin),
+    FOREIGN KEY(idUser) REFERENCES users(idUser)
 );
 
 INSERT INTO
-    Vins (
+    vins (
         nomVin,
         domaine,
         region,
