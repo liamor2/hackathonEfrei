@@ -11,9 +11,9 @@ CREATE TABLE Vins(
     Region VARCHAR(100),
     Pays VARCHAR(100),
     tauxAlcool DECIMAL(4, 2),
-    petillant LOGICAL,
+    petillant BOOLEAN,
     volume DECIMAL(15, 2),
-    bio LOGICAL,
+    bio BOOLEAN,
     couleur VARCHAR(50),
     urlImage VARCHAR(200),
     cépages VARCHAR(200),
@@ -34,6 +34,8 @@ CREATE TABLE Users(
 
 CREATE TABLE Ventes(
     idVentes INT AUTO_INCREMENT,
+    idVin INT,
+    idUser INT,
     prix VARCHAR(50),
     PRIMARY KEY(idVentes),
     FOREIGN KEY(idVin) REFERENCES Vins(idVin),
@@ -42,6 +44,8 @@ CREATE TABLE Ventes(
 
 CREATE TABLE Avis(
     idAvis INT AUTO_INCREMENT,
+    idVin INT,
+    idUser INT,
     Avis TEXT,
     note INT,
     PRIMARY KEY(idAvis),
