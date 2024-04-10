@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --red: #E3243B;
+    --darkRed: #9F1B2B;
+    --grey: #333333;
+    --white: #FFFFFF;
+    --black: #000000
+}
+
+/* Header */
+header {
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--darkRed);
+}
+header a {
+    margin: 1vh 2%;
+    color: var(--white);
+    text-decoration: none;
+}
+header > a {
+    display: flex;
+    width: 30%;
+    align-items: center;
+}
+header > a img {
+    height: 8vh;
+}
+header a h1 {
+    color: var(--white);
+    margin-left: 4%;
+}
+header div {
+    display: flex;
+    width: 30%;
+    justify-content: space-evenly;
+}
+
+/* Global main */
+main {
+    min-height: 70vh;
+    padding-top: 10vh;
+    background-image: url("assets/winecave.webp");
+    background-size: cover;
+    background-position: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Home page */
+#home article {
+    display: flex;
+    width: 80%;
+    min-height: 70vh;
+    margin: 0 auto;
+    background-color: var(--white);
+}
+
+/* Login page */
+#login article {
+    display: flex;
+    height: 60vh;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 50px;
+    overflow: hidden;
+}
+#login form {
+    width: 30%;
+    padding: 15vh 10%;
+    text-align: center;
+    background-color: var(--darkRed);
+}
+#login form h2 {
+    margin-bottom: 1vh;
+}
+#login form p {
+    margin: 0 auto 1vh auto;
+    width: 65%;
+}
+#login form input {
+    margin: 1vh auto;
+    width: 80%;
+    padding: 1.5%;
+    border: none;
+    border-radius: 5px;
+}
+#login form input[type="submit"]  {
+    width: 83%;
+    color: var(--white);
+    background-color: var(--black);
+}
+#login form input[type="submit"]:hover {
+    transition: .1s;
+    background-color: var(--red);
+    cursor: pointer;
+}
+#login article img {
+    width: 50%;
+}
+
+/* Footer */
+footer {
+    height: 8vh;
+    padding-top: 2vh;
+    text-align: center;
+    background-color: var(--grey);
+    color: var(--white);
+}

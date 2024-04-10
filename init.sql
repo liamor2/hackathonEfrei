@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS `wine4all`;
 
-CREATE DATABASE `wine4all`;
+CREATE DATABASE `wine4all` CHARACTER SET utf8;
 
 USE `wine4all`;
 
