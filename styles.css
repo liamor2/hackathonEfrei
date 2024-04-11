@@ -104,6 +104,7 @@ main {
 }
 #home section div:last-of-type {
     display: flex;
+    align-items: center;
     width: 90%;
     max-height: 30vh;
     margin: 0 auto;
