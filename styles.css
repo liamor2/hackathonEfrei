@@ -66,10 +66,59 @@ main {
 /* Home page */
 #home section {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     width: 80%;
-    min-height: 70vh;
+    padding: 5vh 0;
     margin: 0 auto;
     background-color: var(--white);
+}
+#home section div:first-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    min-height: 15vh;
+    padding: 3vh 0;
+    margin: 0 auto;
+    border-radius: 10px;
+    color: var(--white);
+    background-color: var(--darkRed);
+}
+#home section div h2 {
+    text-align: center;
+    font-size: 3rem;
+    width: 100%;
+}
+#home section div p {
+    width: 100%;
+    text-align: center;
+}
+#home section > span {
+    width: 50%;
+    margin-top: 2vh;
+    text-align: center;
+    font-size: 2rem;
+}
+#home section article {
+    width: 45%;
+}
+#home section div:last-of-type {
+    display: flex;
+    width: 90%;
+    max-height: 30vh;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: var(--darkRed);
+    border: 4px solid var(--darkRed);
+    overflow: hidden;
+}
+#home section div:last-of-type img {
+    width: 35%;
+}
+#home section div:last-of-type p {
+    width: 60%;
+    margin: 3vh auto;
+    color: var(--white);
 }
 
 /* Login page */
@@ -115,6 +164,13 @@ main {
 #login section img {
     width: 50%;
 }
+/* Sign up Page */
+#login section #signupForm {
+    padding: 8vh 10%;
+}
+#login section form p a {
+    color: var(--white);
+}
 
 /* Shop page */
 #shop section {
@@ -145,7 +201,7 @@ main {
 #shop section a img {
     width: 100%;
 }
-#shop section article {
+.wineTemplate {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -156,26 +212,26 @@ main {
     border-radius: 5px;
     background-color: var(--white);
 }
-#shop section article:hover {
+.wineTemplate:hover {
     background-color: var(--lightGrey);
     transition: .2s;
 }
-#shop section article h3 {
+.wineTemplate h3 {
     width: 98%;
 }
-#shop section article img:first-of-type {
+.wineTemplate img:first-of-type {
     width: 47%;
     margin: 1vh 0;
 }
-#shop section article p {
+.wineTemplate p {
     display: flex;
     flex-wrap: wrap;
     width: 47%;
 }
-#shop section article p span {
+.wineTemplate p span {
     width: 100%;
 }
-#shop section article p button {
+.wineTemplate p button {
     width: 30%;
     border: none;
     border-radius: 5px;
@@ -184,7 +240,7 @@ main {
     background-color: var(--darkRed);
     cursor: pointer;
 }
-#shop section article p button:hover {
+.wineTemplate p button:hover {
     background-color: var(--red);
     transition: .1s;
 }
