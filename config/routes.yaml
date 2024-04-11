@@ -1,5 +1,15 @@
 controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+  resource:
+    path: ../src/Controller/
+    namespace: App\Controller
+  type: attribute
+
+testServer:
+  path: /test-server
+  controller: App\Controller\ServerTestController::index
+  methods: [GET]
+
+testDatabase:
+  path: /test-database
+  controller: App\Controller\ServerTestController::database
+  methods: [GET]
