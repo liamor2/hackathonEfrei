@@ -7,6 +7,7 @@
     --red: #E3243B;
     --darkRed: #9F1B2B;
     --grey: #333333;
+    --lightGrey: rgb(233, 233, 233);
     --white: #FFFFFF;
     --black: #000000
 }
@@ -54,7 +55,7 @@ header div {
 /* Global main */
 main {
     min-height: 70vh;
-    padding-top: 10vh;
+    padding: 10vh 0;
     background-image: url("assets/images/winecave.webp");
     background-size: cover;
     background-position: fixed;
@@ -63,7 +64,7 @@ main {
 }
 
 /* Home page */
-#home article {
+#home section {
     display: flex;
     width: 80%;
     min-height: 70vh;
@@ -72,7 +73,7 @@ main {
 }
 
 /* Login page */
-#login article {
+#login section {
     display: flex;
     height: 60vh;
     width: 60%;
@@ -81,38 +82,134 @@ main {
     border: 4px solid var(--darkRed);
     overflow: hidden;
 }
-#login form {
+#login section form {
     width: 30%;
     padding: 15vh 10%;
     text-align: center;
     background-color: var(--darkRed);
 }
-#login form h2 {
+#login section form h2 {
     margin-bottom: 1vh;
 }
-#login form p {
+#login section form p {
     margin: 0 auto 1vh auto;
     width: 65%;
 }
-#login form input {
+#login section form input {
     margin: 1vh auto;
     width: 80%;
     padding: 1.5%;
     border: none;
     border-radius: 5px;
 }
-#login form input[type="submit"]  {
+#login section form input[type="submit"]  {
     width: 83%;
     color: var(--white);
     background-color: var(--black);
 }
-#login form input[type="submit"]:hover {
+#login section form input[type="submit"]:hover {
     transition: .1s;
     background-color: var(--red);
     cursor: pointer;
 }
-#login article img {
+#login section img {
     width: 50%;
+}
+
+/* Shop page */
+#shop section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 76%;
+    padding: 1vh 2%;
+    margin: 0 auto;
+    background-color: var(--white);
+}
+#shop section h2 {
+    width: 48%;
+    margin: 1vh 1% 1vh 26%;
+    text-align: center;
+}
+#shop section input {
+    margin: 1vh 1%;
+    padding: 0.5%;
+    width: 20%;
+}
+#shop section a {
+    display: flex;
+    width: 2.5%;
+    margin: 1vh 0;
+    align-items: center;
+}
+#shop section a img {
+    width: 100%;
+}
+#shop section article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 46%;
+    margin: 2vh 0;
+    padding: 1vh 1%;
+    border: 2px solid var(--darkRed);
+    border-radius: 5px;
+    background-color: var(--white);
+}
+#shop section article:hover {
+    background-color: var(--lightGrey);
+    transition: .2s;
+}
+#shop section article h3 {
+    width: 98%;
+}
+#shop section article img:first-of-type {
+    width: 47%;
+    margin: 1vh 0;
+}
+#shop section article p {
+    display: flex;
+    flex-wrap: wrap;
+    width: 47%;
+}
+#shop section article p span {
+    width: 100%;
+}
+#shop section article p button {
+    width: 30%;
+    border: none;
+    border-radius: 5px;
+    padding: 1vh 1%;
+    color: var(--white);
+    background-color: var(--darkRed);
+    cursor: pointer;
+}
+#shop section article p button:hover {
+    background-color: var(--red);
+    transition: .1s;
+}
+#shop section div {
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+    padding: 0 34%;
+}
+#shop section div p {
+    /* justify-content: center; */
+    width: 50%;
+}
+#shop section div button {
+    width: 20%;
+    border: none;
+    border-radius: 5px;
+    padding: 1vh 1%;
+    color: var(--white);
+    background-color: var(--black);
+}
+#shop section div button:hover {
+    transition: .1s;
+    background-color: var(--red);
+    cursor: pointer;
 }
 
 /* Footer */
@@ -120,6 +217,6 @@ footer {
     height: 8vh;
     padding-top: 2vh;
     text-align: center;
-    background-color: var(--grey);
+    background-color: var(--darkRed);
     color: var(--white);
 }
