@@ -261,8 +261,8 @@ main {
 .wineTemplate p span {
     width: 100%;
 }
-.wineTemplate p button {
-    width: 60%;
+.wineTemplate p div .pannel {
+    width: 30%;
     border: none;
     border-radius: 5px;
     padding: 1vh 1%;
