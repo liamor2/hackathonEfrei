@@ -32,14 +32,6 @@ class Sales
     #[ORM\Column(type: Types::DECIMAL, precision: 20, scale: 2)]
     private ?string $price = null;
 
-    #[ORM\Column(type: 'datetime')]
-    private \DateTime $creationDate;
-
-    public function __construct()
-    {
-        $this->creationDate = new \DateTime();
-    }
-
     public function getId(): ?int
     {
         return $this->id;

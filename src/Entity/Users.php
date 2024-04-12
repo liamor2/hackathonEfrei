@@ -68,14 +68,10 @@ class Users
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
-    #[ORM\Column(type: 'datetime')]
-    private \DateTime $creationDate;
-
     public function __construct()
     {
         $this->listComments = new ArrayCollection();
         $this->role = 'user';
-        $this->creationDate = new \DateTime();
     }
 
     public function getId(): ?int

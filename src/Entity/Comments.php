@@ -34,14 +34,6 @@ class Comments
     #[ORM\Column]
     private ?int $score = null;
 
-    #[ORM\Column(type: 'datetime')]
-    private \DateTime $creationDate;
-
-    public function __construct()
-    {
-        $this->creationDate = new \DateTime();
-    }
-
     public function getId(): ?int
     {
         return $this->id;

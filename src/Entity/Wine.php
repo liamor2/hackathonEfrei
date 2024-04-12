@@ -87,14 +87,11 @@ class Wine
     #[ORM\OneToMany(targetEntity: Comments::class, mappedBy: 'idWine')]
     private Collection $listComments;
 
-    #[ORM\Column(type: 'datetime')]
-    private \DateTime $creationDate;
 
     public function __construct()
     {
         $this->salesList = new ArrayCollection();
         $this->listComments = new ArrayCollection();
-        $this->creationDate = new \DateTime();
     }
 
     public function getId(): ?int
