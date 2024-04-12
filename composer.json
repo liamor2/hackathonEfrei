@@ -37,7 +37,7 @@
         },
         "sort-packages": true,
         "platform": {
-            "php": "7.4.3"
+            "php": "8.2.10"
         }
     },
     "autoload": {

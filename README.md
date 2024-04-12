@@ -9,7 +9,3 @@ Site axée sur le vin:
 -Favoris et avis (comptes utilisateurs)
 -Mise en vente de vin (Vendeur et Particulier)
 -Enchère du jour ?
-
-Testing pull request
-Give me the achievment
-Help me i'm under water
