@@ -15,7 +15,8 @@
 
                 <input type="submit" value="Sign up">
                 <p>By clicking Sign up, you agree to our
-                    <a href="termsAndPolicy.html" target="_blank">Terms of Service and Private Policy</a>
+                    <router-link to="/terms" target="_blank">Terms of Service and Privacy Policy</router-link>
+
                 </p>
             </form>
         </section>
@@ -59,10 +60,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .login section form {
     width: 30%;
     padding: 10%;
+    padding-top: 0;
     text-align: center;
     background-color: var(--darkRed);
 }
