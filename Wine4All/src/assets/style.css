@@ -1,0 +1,342 @@
+@font-face {
+    font-family: "TiltNeon";
+    src: url("assets/Tilt_Neon/static/TiltNeon-Regular.ttf") format("woff2");
+}
+
+:root {
+    --red: #c7041b;
+    --darkRed: #9F1B2B;
+    --grey: #333333;
+    --lightGrey: rgb(233, 233, 233);
+    --white: #FFFFFF;
+    --black: #000000
+}
+
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "TiltNeon", sans-serif;
+}
+
+/* Header */
+header {
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--darkRed);   
+}
+header a {
+    margin: 1vh 2%;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+header > a {
+    display: flex;
+    width: 30%;
+    align-items: center;
+}
+header > a img {
+    height: 8vh;
+}
+header a h1 {
+    color: var(--white);
+    margin-left: 4%;
+}
+header div {
+    display: flex;
+    width: 40%;
+    justify-content: space-evenly;
+}
+
+/* Global main */
+main {
+    /* min-height: 70vh; */
+    padding: 10vh 0;
+    background-image: url("images/winecave.webp");
+    background-size: cover;
+    background-position: fixed;
+    background-repeat: no-repeat;
+    
+}
+
+/* Home page */
+.home section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 80%;
+    padding: 5vh 0;
+    margin: 0 auto;
+    background-color: var(--white);
+}
+.home section div:first-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    min-height: 15vh;
+    padding: 3vh 0;
+    margin: 0 auto;
+    border-radius: 10px;
+    color: var(--white);
+    background-color: var(--darkRed);
+}
+.home section div h2 {
+    text-align: center;
+    font-size: 3rem;
+    width: 100%;
+}
+.home section div p {
+    width: 100%;
+    text-align: center;
+}
+.home section > span {
+    width: 50%;
+    margin-top: 2vh;
+    text-align: center;
+    font-size: 2rem;
+}
+.home section article {
+    width: 45%;
+}
+.home section div:last-of-type {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-height: 30vh;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: var(--darkRed);
+    border: 4px solid var(--darkRed);
+    overflow: hidden;
+}
+.home section div:last-of-type img {
+    width: 35%;
+}
+.home section div:last-of-type p {
+    width: 60%;
+    margin: 3vh auto;
+    color: var(--white);
+}
+
+/* Login page */
+.login section {
+    display: flex;
+    height: 60vh;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 50px;
+    border: 4px solid var(--darkRed);
+    overflow: hidden;
+}
+.login section form {
+    width: 30%;
+    padding: 15vh 10%;
+    text-align: center;
+    background-color: var(--darkRed);
+}
+.login section form h2 {
+    margin-bottom: 1vh;
+}
+.login section form p {
+    margin: 0 auto 1vh auto;
+    width: 65%;
+}
+.login section form input {
+    margin: 1vh auto;
+    width: 80%;
+    padding: 1.5%;
+    border: none;
+    border-radius: 5px;
+}
+.login section form input[type="submit"]  {
+    width: 83%;
+    color: var(--white);
+    background-color: var(--black);
+}
+.login section form input[type="submit"]:hover {
+    transition: .1s;
+    background-color: var(--red);
+    cursor: pointer;
+}
+.login section img {
+    width: 50%;
+}
+
+/* Sign up Page */
+.login section #signupForm {
+    padding: 8vh 10%;
+}
+.login section form p a {
+    color: var(--white);
+}
+.login #sells {
+    width: 80%;
+    height: auto;
+}
+.login #sells img {
+    width: 35%;
+}
+.login #sells form {
+    justify-content: space-around;
+    width: 65%;
+    padding: 2vh 2%;
+}
+.login #sells form input {
+    padding: .7vh .7%;
+    width: 45%;
+}
+.login #sells form input[type="checkbox"] {
+    width: auto;
+    margin: 1vh 15.5% 1vh 1%;
+}
+.login #sells form input[id="url"] {
+    width: 81%;
+}
+.login #sells form textarea {
+    width: 80%;
+    padding: 1vh 1%;
+    border-radius: 10px;
+}
+
+/* Shop page */
+.shop section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 76%;
+    padding: 1vh 2%;
+    margin: 0 auto;
+    background-color: var(--white);
+}
+.shop section h2 {
+    width: 48%;
+    margin: 1vh 1% 1vh 26%;
+    text-align: center;
+}
+.shop section input {
+    margin: 1vh 1%;
+    padding: 0.5%;
+    width: 20%;
+}
+.shop section a {
+    display: flex;
+    width: 2.5%;
+    margin: 1vh 0;
+    align-items: center;
+}
+.shop section a img {
+    width: 100%;
+}
+.wineTemplate {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 46%;
+    margin: 2vh 0;
+    padding: 1vh 1%;
+    border: 2px solid var(--darkRed);
+    border-radius: 5px;
+    background-color: var(--white);
+}
+.wineTemplate:hover {
+    background-color: var(--lightGrey);
+    transition: .2s;
+}
+.wineTemplate h3 {
+    width: 98%;
+}
+.wineTemplate img:first-of-type {
+    width: 47%;
+    margin: 1vh 0;
+}
+.wineTemplate p {
+    display: flex;
+    flex-wrap: wrap;
+    width: 47%;
+}
+.wineTemplate p span {
+    width: 100%;
+}
+.wineTemplate p div .pannel {
+    width: 30%;
+    border: none;
+    border-radius: 5px;
+    padding: 1vh 1%;
+    color: var(--white);
+    background-color: var(--darkRed);
+    cursor: pointer;
+}
+.wineTemplate p button:hover {
+    background-color: var(--red);
+    transition: .1s;
+}
+.shop section h2 {
+    font-size: 2.2rem;
+}
+.shop section div {
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+    padding: 0 34%;
+}
+.shop section div p {
+    /* justify-content: center; */
+    width: 50%;
+}
+.shop section div button {
+    width: 20%;
+    border: none;
+    border-radius: 5px;
+    padding: 1vh 1%;
+    color: var(--white);
+    background-color: var(--black);
+}
+.shop section div button:hover {
+    transition: .1s;
+    background-color: var(--red);
+    cursor: pointer;
+}
+
+/* Account Page */
+.login section div {
+    width: 40%;
+    padding: 15vh 5%;
+    background-color: var(--darkRed);
+}
+.login section div p {
+    margin-top: 2vh;
+    font-size: 1.2rem;
+}
+.login section img {
+    background-color: var(--darkRed);
+}
+
+/* Terms and Policy Page */
+.home #terms {
+    position: relative;
+    width: 60%;
+    height: 60vh;
+    padding: 5vh 5%;
+}
+.home #terms img {
+    position: absolute;
+    top: 1vh;
+    left: 1%;
+    height: 10vh;
+}
+.home #terms p {
+    width: 90%;
+}
+
+/* Footer */
+footer {
+    height: 8vh;
+    padding-top: 2vh;
+    text-align: center;
+    background-color: var(--darkRed);
+    color: var(--white);
+}
