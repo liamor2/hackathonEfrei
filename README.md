@@ -20,6 +20,22 @@ Liam Gattegno,
 Samuel Vergnol,
 Joseph Autret
 
+## Installation
+
+### Prérequis
+
+- PHP 8.2
+- Composer
+- Node.js
+- NPM
+- openssl and sodium PHP extensions
+
+### Commande
+```bash
+composer update
+npm install
+```
+
 Testing pull request
 Give me the achievment
 Help me i'm under water
