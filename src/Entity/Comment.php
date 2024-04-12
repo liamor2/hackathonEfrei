@@ -8,7 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-#[ApiResource]
+#[ApiResource(
+    normalizationContext: ['groups' => ['comment:read']],
+    denormalizationContext: ['groups' => ['comment:write']]
+)]
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 #[UniqueEntity(fields: ['idWine', 'idUser'], message: 'You have already commented on this wine')]
 class Comment
