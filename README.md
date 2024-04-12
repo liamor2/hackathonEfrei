@@ -2,14 +2,18 @@
 
 ## Description
 
-Site axée sur le vin:
--Carte interactive
--Base de données de vins
--API Vin
--Favoris et avis (comptes utilisateurs)
--Mise en vente de vin (Vendeur et Particulier)
--Enchère du jour ?
+This project is a hackathon project for the Efrei school. The goal is to create a web application that allows users to review wines. The application is built with Vue 3 and Vite.
 
-Testing pull request
-Give me the achievment
-Help me i'm under water
+## Installation
+
+Open a terminal at the project root
+Run npm i
+Run npm run dev
+Navigate to localhost:5173
+Enjoy!
+
+## Authors
+
+Samuel Vergnol - Vue et Requètes
+Gael Chouipe-Bréus - HTML/CSS
+Joseph Autret - Maquettes et Vue
