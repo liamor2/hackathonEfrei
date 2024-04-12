@@ -25,15 +25,14 @@
                     <img src="" alt="">
                     <span>Pays: France, Région: Bordeaux, Couleur: Rouge</span>
                     <span>Prix: 19.50 euros</span>
-                    <button onclick="">Purchase</button>
                 </p>
             </article>
             <article class="wineTemplate">
-                <h3>Château Moulin Bellegrave 2020</h3>
+                <h3>Château Pierre-Hermé 2019</h3>
                 <img src="../assets\images\chateau-moulin-bellegrave-2020.png" alt="Château Moulin Bellegrave 2020">
                 <p>
                     <img src="" alt="">
-                    <span> Millésime: 2020</span>
+                    <span> Millésime: 2019</span>
                     <img src="" alt="">
                     <span>Appellation: Saint-Emilion Grand Cru</span>
                     <img src="" alt="">
@@ -44,8 +43,6 @@
                     <span>Goûts: Tanins mâchus, bouche épicée. Finale savoureuse et tannique, not vanille persistantes</span>
                     <img src="" alt="">
                     <span>Pays: France, Région: Bordeaux, Couleur: Rouge</span>
-                    <span>Prix: 19.50 euros</span>
-                    <button onclick="">Purchase</button>
                 </p>
             </article>
             <div>
