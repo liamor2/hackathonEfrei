@@ -20,7 +20,7 @@ Site axée sur le vin:
 - NPM
 - openssl and sodium PHP extensions
 
-### Installation
+### Commande
 ```bash
 composer update
 npm install
