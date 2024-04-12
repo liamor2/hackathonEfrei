@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\SalesRepository;
+use App\Repository\SaleRepository;
 use ApiPlatform\Metadata\ApiResource;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,9 +10,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ApiResource]
-#[ORM\Entity(repositoryClass: SalesRepository::class)]
+#[ORM\Entity(repositoryClass: SaleRepository::class)]
 #[UniqueEntity(fields: ['idWine', 'idUser'], message: 'You have already bought this wine')]
-class Sales
+class Sale
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -24,10 +24,10 @@ class Sales
     #[Assert\NotBlank]
     private ?Wine $idWine = null;
 
-    #[ORM\OneToOne(inversedBy: 'salesList', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'saleList', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     #[Assert\NotBlank]
-    private ?Users $idUser = null;
+    private ?User $idUser = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 20, scale: 2)]
     private ?string $price = null;
@@ -49,12 +49,12 @@ class Sales
         return $this;
     }
 
-    public function getIdUser(): ?Users
+    public function getIdUser(): ?User
     {
         return $this->idUser;
     }
 
-    public function setIdUser(Users $idUser): static
+    public function setIdUser(User $idUser): static
     {
         $this->idUser = $idUser;
 

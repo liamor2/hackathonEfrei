@@ -25,24 +25,24 @@ final class Version20240412101740 extends AbstractMigration
             "Migration can only be executed safely on '\Doctrine\DBAL\Platforms\MariaDBPlatform'."
         );
 
-        if (!$schema->hasTable('comments')) {
-            $this->addSql('CREATE TABLE comments (id INT AUTO_INCREMENT NOT NULL, review VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, score INT NOT NULL, id_wine_id INT NOT NULL, id_user_id INT NOT NULL, INDEX IDX_5F9E962AF63F1406 (id_wine_id), INDEX IDX_5F9E962A79F37AE5 (id_user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB COMMENT = \'\' ');
+        if (!$schema->hasTable('comment')) {
+            $this->addSql('CREATE TABLE comment (id INT AUTO_INCREMENT NOT NULL, review VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, score INT NOT NULL, id_wine_id INT NOT NULL, id_user_id INT NOT NULL, INDEX IDX_5F9E962AF63F1406 (id_wine_id), INDEX IDX_5F9E962A79F37AE5 (id_user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB COMMENT = \'\' ');
         }
         $this->abortIf(
             !$this->connection->getDatabasePlatform() instanceof \Doctrine\DBAL\Platforms\MariaDBPlatform,
             "Migration can only be executed safely on '\Doctrine\DBAL\Platforms\MariaDBPlatform'."
         );
 
-        if (!$schema->hasTable('sales')) {
-            $this->addSql('CREATE TABLE sales (id INT AUTO_INCREMENT NOT NULL, price NUMERIC(20, 2) NOT NULL, id_wine_id INT NOT NULL, id_user_id INT NOT NULL, INDEX IDX_6B817044F63F1406 (id_wine_id), UNIQUE INDEX UNIQ_6B81704479F37AE5 (id_user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB COMMENT = \'\' ');
+        if (!$schema->hasTable('sale')) {
+            $this->addSql('CREATE TABLE sale (id INT AUTO_INCREMENT NOT NULL, price NUMERIC(20, 2) NOT NULL, id_wine_id INT NOT NULL, id_user_id INT NOT NULL, INDEX IDX_6B817044F63F1406 (id_wine_id), UNIQUE INDEX UNIQ_6B81704479F37AE5 (id_user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB COMMENT = \'\' ');
         }
         $this->abortIf(
             !$this->connection->getDatabasePlatform() instanceof \Doctrine\DBAL\Platforms\MariaDBPlatform,
             "Migration can only be executed safely on '\Doctrine\DBAL\Platforms\MariaDBPlatform'."
         );
 
-        if (!$schema->hasTable('users')) {
-            $this->addSql('CREATE TABLE users (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, lastname VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, email VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, address VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, role VARCHAR(4) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, phone VARCHAR(15) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, password VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB COMMENT = \'\' ');
+        if (!$schema->hasTable('user')) {
+            $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, lastname VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, email VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, address VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, role VARCHAR(4) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, phone VARCHAR(15) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, password VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB COMMENT = \'\' ');
         }
         $this->abortIf(
             !$this->connection->getDatabasePlatform() instanceof \Doctrine\DBAL\Platforms\MariaDBPlatform,
@@ -69,19 +69,19 @@ final class Version20240412101740 extends AbstractMigration
             "Migration can only be executed safely on '\Doctrine\DBAL\Platforms\MariaDBPlatform'."
         );
 
-        $this->addSql('DROP TABLE comments');
+        $this->addSql('DROP TABLE comment');
         $this->abortIf(
             !$this->connection->getDatabasePlatform() instanceof \Doctrine\DBAL\Platforms\MariaDBPlatform,
             "Migration can only be executed safely on '\Doctrine\DBAL\Platforms\MariaDBPlatform'."
         );
 
-        $this->addSql('DROP TABLE sales');
+        $this->addSql('DROP TABLE sale');
         $this->abortIf(
             !$this->connection->getDatabasePlatform() instanceof \Doctrine\DBAL\Platforms\MariaDBPlatform,
             "Migration can only be executed safely on '\Doctrine\DBAL\Platforms\MariaDBPlatform'."
         );
 
-        $this->addSql('DROP TABLE users');
+        $this->addSql('DROP TABLE user');
         $this->abortIf(
             !$this->connection->getDatabasePlatform() instanceof \Doctrine\DBAL\Platforms\MariaDBPlatform,
             "Migration can only be executed safely on '\Doctrine\DBAL\Platforms\MariaDBPlatform'."

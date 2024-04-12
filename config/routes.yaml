@@ -5,11 +5,31 @@ controllers:
   type: attribute
 
 testServer:
-  path: /test-server
+  path: /api/test-server
   controller: App\Controller\ServerTestController::index
   methods: [GET]
 
 testDatabase:
-  path: /test-database
+  path: /api/test-database
   controller: App\Controller\ServerTestController::database
   methods: [GET]
+
+login:
+  path: /api/login
+  controller: App\Controller\UserGestionController::login
+  methods: [POST]
+
+register:
+  path: /api/register
+  controller: App\Controller\UserGestionController::register
+  methods: [POST]
+
+elevate-user:
+  path: /api/elevate-user
+  controller: App\Controller\UserGestionController::elevateUser
+  methods: [POST]
+
+assistant:
+  path: /api/assistant
+  controller: App\Controller\AssistantController::assistant
+  methods: [POST]

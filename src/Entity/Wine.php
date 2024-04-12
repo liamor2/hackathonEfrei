@@ -76,22 +76,22 @@ class Wine
     private ?string $description = null;
 
     /**
-     * @var Collection<int, Sales>
+     * @var Collection<int, Sale>
      */
-    #[ORM\OneToMany(targetEntity: Sales::class, mappedBy: 'idWine', orphanRemoval: true)]
-    private Collection $salesList;
+    #[ORM\OneToMany(targetEntity: Sale::class, mappedBy: 'idWine', orphanRemoval: true)]
+    private Collection $saleList;
 
     /**
-     * @var Collection<int, Comments>
+     * @var Collection<int, Comment>
      */
-    #[ORM\OneToMany(targetEntity: Comments::class, mappedBy: 'idWine')]
-    private Collection $listComments;
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'idWine')]
+    private Collection $listComment;
 
 
     public function __construct()
     {
-        $this->salesList = new ArrayCollection();
-        $this->listComments = new ArrayCollection();
+        $this->saleList = new ArrayCollection();
+        $this->listComment = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -256,29 +256,29 @@ class Wine
     }
 
     /**
-     * @return Collection<int, Sales>
+     * @return Collection<int, Sale>
      */
-    public function getSalesList(): Collection
+    public function getSaleList(): Collection
     {
-        return $this->salesList;
+        return $this->saleList;
     }
 
-    public function addSalesList(Sales $salesList): static
+    public function addSaleList(Sale $saleList): static
     {
-        if (!$this->salesList->contains($salesList)) {
-            $this->salesList->add($salesList);
-            $salesList->setIdWine($this);
+        if (!$this->saleList->contains($saleList)) {
+            $this->saleList->add($saleList);
+            $saleList->setIdWine($this);
         }
 
         return $this;
     }
 
-    public function removeSalesList(Sales $salesList): static
+    public function removeSaleList(Sale $saleList): static
     {
-        if ($this->salesList->removeElement($salesList)) {
+        if ($this->saleList->removeElement($saleList)) {
             // set the owning side to null (unless already changed)
-            if ($salesList->getIdWine() === $this) {
-                $salesList->setIdWine(null);
+            if ($saleList->getIdWine() === $this) {
+                $saleList->setIdWine(null);
             }
         }
 
@@ -286,26 +286,26 @@ class Wine
     }
 
     /**
-     * @return Collection<int, Comments>
+     * @return Collection<int, Comment>
      */
-    public function getListComments(): Collection
+    public function getListComment(): Collection
     {
-        return $this->listComments;
+        return $this->listComment;
     }
 
-    public function addListComment(Comments $listComment): static
+    public function addListComment(Comment $listComment): static
     {
-        if (!$this->listComments->contains($listComment)) {
-            $this->listComments->add($listComment);
+        if (!$this->listComment->contains($listComment)) {
+            $this->listComment->add($listComment);
             $listComment->setIdWine($this);
         }
 
         return $this;
     }
 
-    public function removeListComment(Comments $listComment): static
+    public function removeListComment(Comment $listComment): static
     {
-        if ($this->listComments->removeElement($listComment)) {
+        if ($this->listComment->removeElement($listComment)) {
             // set the owning side to null (unless already changed)
             if ($listComment->getIdWine() === $this) {
                 $listComment->setIdWine(null);

@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\UsersRepository;
+use App\Repository\UserRepository;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
@@ -24,9 +24,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
         new Delete
     ]
 )]
-#[ORM\Entity(repositoryClass: UsersRepository::class)]
+#[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'This email is already in use')]
-class Users
+class User
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -57,20 +57,20 @@ class Users
     private ?string $phone = null;
 
     #[ORM\OneToOne(mappedBy: 'idUser', cascade: ['persist', 'remove'])]
-    private ?Sales $salesList = null;
+    private ?Sale $saleList = null;
 
     /**
-     * @var Collection<int, Comments>
+     * @var Collection<int, Comment>
      */
-    #[ORM\OneToMany(targetEntity: Comments::class, mappedBy: 'idUser')]
-    private Collection $listComments;
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'idUser')]
+    private Collection $listComment;
 
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
     public function __construct()
     {
-        $this->listComments = new ArrayCollection();
+        $this->listComment = new ArrayCollection();
         $this->role = 'user';
     }
 
@@ -151,44 +151,44 @@ class Users
         return $this;
     }
 
-    public function getSalesList(): ?Sales
+    public function getSaleList(): ?Sale
     {
-        return $this->salesList;
+        return $this->saleList;
     }
 
-    public function setSalesList(Sales $salesList): static
+    public function setSaleList(Sale $saleList): static
     {
         // set the owning side of the relation if necessary
-        if ($salesList->getIdUser() !== $this) {
-            $salesList->setIdUser($this);
+        if ($saleList->getIdUser() !== $this) {
+            $saleList->setIdUser($this);
         }
 
-        $this->salesList = $salesList;
+        $this->saleList = $saleList;
 
         return $this;
     }
 
     /**
-     * @return Collection<int, Comments>
+     * @return Collection<int, Comment>
      */
-    public function getListComments(): Collection
+    public function getListComment(): Collection
     {
-        return $this->listComments;
+        return $this->listComment;
     }
 
-    public function addListComment(Comments $listComment): static
+    public function addListComment(Comment $listComment): static
     {
-        if (!$this->listComments->contains($listComment)) {
-            $this->listComments->add($listComment);
+        if (!$this->listComment->contains($listComment)) {
+            $this->listComment->add($listComment);
             $listComment->setIdUser($this);
         }
 
         return $this;
     }
 
-    public function removeListComment(Comments $listComment): static
+    public function removeListComment(Comment $listComment): static
     {
-        if ($this->listComments->removeElement($listComment)) {
+        if ($this->listComment->removeElement($listComment)) {
             // set the owning side to null (unless already changed)
             if ($listComment->getIdUser() === $this) {
                 $listComment->setIdUser(null);

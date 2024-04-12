@@ -2,15 +2,127 @@
 
 namespace App\Controller;
 
-use Doctrine\ORM\EntityManagerInterface;
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Post;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Users;
+use App\Entity\User;
 
-#[ApiResource]
+#[AsController]
+#[ApiResource(operations: [
+    new Post(
+        name: 'login',
+        uriTemplate: '/api/login',
+        constroller: UserGestionController::login,
+        openapiContext: [
+            'requestBody' => [
+                'content' => [
+                    'application/json' => [
+                        'schema' => [
+                            'type' => 'object',
+                            'properties' => [
+                                'email' => [
+                                    'type' => 'string'
+                                ],
+                                'password' => [
+                                    'type' => 'string'
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            'responses' => [
+                '200' => [
+                    'description' => 'You have successfully logged in'
+                ],
+                '401' => [
+                    'description' => 'Invalid email or password'
+                ]
+            ]
+        ]
+    ),
+    new Post(
+        name: 'register',
+        uriTemplate: '/api/register',
+        constroller: UserGestionController::register,
+        openapiContext: [
+            'requestBody' => [
+                'content' => [
+                    'application/json' => [
+                        'schema' => [
+                            'type' => 'object',
+                            'properties' => [
+                                'name' => [
+                                    'type' => 'string'
+                                ],
+                                'lastname' => [
+                                    'type' => 'string'
+                                ],
+                                'email' => [
+                                    'type' => 'string'
+                                ],
+                                'address' => [
+                                    'type' => 'string'
+                                ],
+                                'phone' => [
+                                    'type' => 'string'
+                                ],
+                                'password' => [
+                                    'type' => 'string'
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            'responses' => [
+                '200' => [
+                    'description' => 'You have successfully registered'
+                ],
+                '400' => [
+                    'description' => 'Missing required data'
+                ]
+            ]
+        ]
+    ),
+    new Post(
+        name: 'elevate_role',
+        uriTemplate: '/api/elevate-role',
+        constroller: UserGestionController::elevateRole,
+        openapiContext: [
+            'requestBody' => [
+                'content' => [
+                    'application/json' => [
+                        'schema' => [
+                            'type' => 'object',
+                            'properties' => [
+                                'email' => [
+                                    'type' => 'string'
+                                ],
+                                'role' => [
+                                    'type' => 'string'
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            'responses' => [
+                '200' => [
+                    'description' => 'User role has been updated'
+                ],
+                '404' => [
+                    'description' => 'User not found'
+                ]
+            ]
+        ]
+    )
+])]
 class UserGestionController extends AbstractController
 {
     private $entityManager;
@@ -27,7 +139,7 @@ class UserGestionController extends AbstractController
         $email = $data['email'];
         $hashedPassword = $data['password'];
 
-        $userRepository = $this->entityManager->getRepository(Users::class);
+        $userRepository = $this->entityManager->getRepository(User::class);
         $user = $userRepository->findOneBy(['email' => $email, 'password' => $hashedPassword]);
 
         if (!$user) {
@@ -48,7 +160,7 @@ class UserGestionController extends AbstractController
         $email = $data['email'];
         $hashedPassword = $data['password'];
 
-        $userRepository = $this->entityManager->getRepository(Users::class);
+        $userRepository = $this->entityManager->getRepository(User::class);
         $user = $userRepository->findOneBy(['email' => $email]);
 
         if ($user) {
@@ -57,11 +169,10 @@ class UserGestionController extends AbstractController
             ], 400);
         }
 
-        $user = new Users();
+        $user = new User();
         $name = $data['name'] ?? null;
         $lastname = $data['lastname'] ?? null;
         $address = $data['address'] ?? null;
-        $role = $data['role'] ?? 'user';
 
         if ($name === null || $lastname === null || $address === null) {
             return $this->json([
@@ -73,7 +184,7 @@ class UserGestionController extends AbstractController
         $user->setLastname($lastname);
         $user->setEmail($email);
         $user->setAddress($address);
-        $user->setRole($role);
+        $user->setRole('user');
         $user->setPhone($data['phone'] ?? null);
         $user->setPassword($hashedPassword);
 
@@ -92,7 +203,7 @@ class UserGestionController extends AbstractController
         $email = $data['email'];
         $role = $data['role'];
 
-        $userRepository = $this->entityManager->getRepository(Users::class);
+        $userRepository = $this->entityManager->getRepository(User::class);
         $user = $userRepository->findOneBy(['email' => $email]);
 
         if (!$user) {

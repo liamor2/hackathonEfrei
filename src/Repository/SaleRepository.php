@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\Sales;
+use App\Entity\Sale;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Sales>
+ * @extends ServiceEntityRepository<Sale>
  *
- * @method Sales|null find($id, $lockMode = null, $lockVersion = null)
- * @method Sales|null findOneBy(array $criteria, array $orderBy = null)
- * @method Sales[]    findAll()
- * @method Sales[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Sale|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Sale|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Sale[]    findAll()
+ * @method Sale[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SalesRepository extends ServiceEntityRepository
+class SaleRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Sales::class);
+        parent::__construct($registry, Sale::class);
     }
 
     //    /**
-    //     * @return Sales[] Returns an array of Sales objects
+    //     * @return Sale[] Returns an array of Sale objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -36,7 +36,7 @@ class SalesRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Sales
+    //    public function findOneBySomeField($value): ?Sale
     //    {
     //        return $this->createQueryBuilder('s')
     //            ->andWhere('s.exampleField = :val')
