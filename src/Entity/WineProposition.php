@@ -57,7 +57,7 @@ class WineProposition
     #[Assert\NotBlank]
     private ?string $type = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 511)]
     #[Assert\NotBlank]
     private ?string $url = null;
 
